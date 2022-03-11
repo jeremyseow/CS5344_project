@@ -5,7 +5,7 @@
 env_name=bdat
 env_file=environment.yml
 env_channel=conda-forge
-env_libs='python jupyter numpy pandas scikit-learn scipy matplotlib'
+env_libs='python jupyter numpy pandas scikit-learn scipy matplotlib pyspark openjdk Py4J pyarrow'
 env_thirdparty='efficient-apriori==2.0.1'
 # ================================================================================
 # configure environment using variables defined above
