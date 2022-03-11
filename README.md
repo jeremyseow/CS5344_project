@@ -28,9 +28,16 @@ conda deactivate
 
 ### To add new libraries and/or packages
 First add the library/package to the variable accordingly in file `configuration/reinit.zsh` at the top. <br/>
-Then run the script from the "setup" directory: <br/>
+Then run the script from the "setup" directory:
 ```
 cd setup
 ./reinit.zsh
 ```
-Inform everyone that the environment has been refreshed so that we can update as well. <br/>
+
+### To re-create environment with updated environment.yml
+If environment.yml has been changed by others, recreate the environment:
+```
+conda env remove bdat
+cd setup
+conda env create --name bdat -f environment.yml
+```
