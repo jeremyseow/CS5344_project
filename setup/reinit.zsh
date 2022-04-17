@@ -3,10 +3,11 @@
 # variables for conda environment. change only these arguments if need be
 # ================================================================================
 env_name=bdat
-env_file=environment.yml
+env_file=environment_local.yml
+env_public=environment.yml
 env_channel=conda-forge
-env_libs='python jupyter numpy pandas scikit-learn scipy matplotlib pyspark openjdk Py4J pyarrow nltk wordcloud'
-env_thirdparty='efficient-apriori==2.0.1'
+env_libs='python jupyter numpy pandas requests scikit-learn scipy matplotlib pyspark openjdk Py4J pyarrow nltk wordcloud plotnine scikit-misc'
+env_thirdparty='efficient-apriori plydata'
 # ================================================================================
 # configure environment using variables defined above
 # ================================================================================
@@ -47,4 +48,7 @@ fi
 conda env remove --name ${env_name}
 conda env create --name ${env_name} -f ${env_file}
 conda activate ${env_name}
+
+# remove hashes and local lines
+cat ${env_file} | cut -f -2 -d "=" | grep -v "prefix" > ${env_public}
 # ================================================================================
